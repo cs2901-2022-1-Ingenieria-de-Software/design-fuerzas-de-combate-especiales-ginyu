@@ -48,11 +48,11 @@ class Control{
       dispositivos.push_back(new Fan(4));
     };
   
-  	void Prender(int number){
-      dispositivos[number]->encendido = true;
+  	void Presionar(int number){
+      dispositivos[number]->encendido = !dispositivos[number]->encendido;
     }
 
     void isOn(int number){
-        cout << dispositivos[number]->encendido;
+        cout << dispositivos[number]->encendido << endl;
     }
 };
