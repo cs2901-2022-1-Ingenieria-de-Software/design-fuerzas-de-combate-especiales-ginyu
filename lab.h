@@ -32,6 +32,7 @@ class Fan: public Dispositivo
 public:
     Fan(){};
 	Fan(int _maximo_nivel): maximo_nivel(_maximo_nivel){}
+    friend class Control;
 private:
 	int nivel = 0, maximo_nivel;
 };
@@ -41,10 +42,10 @@ class Control{
   vector<Dispositivo*> dispositivos;
   public:
   	Control(){
-      dispositivos[0] = new Bulb();
-      dispositivos[1] = new Bulb();
-      dispositivos[2] = new Bulb();
-      dispositivos[3] = new Fan();
+      dispositivos.push_back(new Bulb("red"));
+      dispositivos.push_back(new Bulb("amarillo"));
+      dispositivos.push_back(new Bulb("azul"));
+      dispositivos.push_back(new Fan(4));
     };
   
   	void Prender(int number){
